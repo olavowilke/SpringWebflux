@@ -1,0 +1,131 @@
+Notas estudo
+
+Reactive Programming
+
+	event driven
+	data streams
+ 	asynchronous 
+	non-blocking
+	backpressure
+ 	functional/declarative programming 
+
+	Reactive programming != reactive systems
+
+React in a COLD or HOT way
+
+	Observables:
+	Cold: Lazy ones
+		Não agem até que alguem dê um subscribe nesse observable.
+	Hot: Hard workers
+		Publica eventos mesmo que não haja nenhum subscriber.
+
+Initiative: Reactive Streams
+
+	Standard for asynchronous stream processing with non blocking back pressure
+		-process a potentially unbounded number of elements
+		-in sequence
+		-asynchronously passing elements between components
+		-mandatory non blocking backpressure
+
+Reactive Streams API Components
+	-Publisher(ou Observable)
+		publica os eventos e gera os elementos
+		represents the DataSource
+		    subscribe()
+		    onSubscribe()
+		    onNext()
+		        how the data is sent to the caller from the Data Source
+		    onError()
+		    onComplete()
+		        how the Data Source notifies the app that there is no more data
+	-Subscriber
+		consome os eventos publicados
+	-Subscription
+		objeto gerado entre o publisher e o subscriber
+		    request()
+		    cancel()
+	-Processor
+
+Implementation of reactive streams specification: Project Reactor
+	-fully non-blocking
+	-two reactive and composable API's: Flux[N] and Mono[0|1]
+	-operators to select, filter, transform and combine streams.
+
+    Flux & Mono
+        Flux
+            Represents 0 - N elements
+        Mono
+            Represents 0 - 1 element
+
+Reactor Operators
+    Pipeline concept: chaining multiple operators
+    map()
+        Used to transform the element from one form to another
+        Reactive streams are immutable.
+
+    filter()
+        Used to filter elements on a data stream
+
+    flatMap()
+        Used when the transformation return a reactive type (Flux or Mono)
+        Returns a Flux<Type>
+
+    map() vs flatmap()
+        - One to One transformation
+        vs One to N transformations
+        - Does the simple transformation from T to V
+        vs Does more than just transformation. Subscribes to Flux or Mono
+        thats part of the transformation then flattens it and sends it downstream.
+        - Used for simple synchronous transformations
+        vs used from asynchronous transformations
+        - Does not support transformations that returns Publishers
+        vs used for transformations that requires a Publisher return
+
+    concatMap()
+        Preserves the order while calling asynchronously, but takes more time to complete.
+
+    flatMap() in Mono
+        Used when the transformation function returns a Mono
+        Returns a Mono<T>
+        Use flatMap in the transformation when making a REST API call or any kind of
+        functionality that can be done asynchronously
+
+    flatMapMany() operator in Mono
+        Used when the mono transformation function returns a Flux
+
+    transform()
+        Used to transform from one type to another type
+        Accepts Function Functional Interface
+            Concept of behavior parametrization
+            Input - Publisher (Flux or Mono)
+            Output - Publisher (Flux or Mono)
+            Similar to extracting a method
+
+    defaultIfEmpty() & switchIfEmpty()
+        Used when the datasource returns an empty value
+
+    Combining Flux & Mono
+        concat() & concatWith()
+            Subscribes to the publisher in sequence
+            Used to combine two reactive streams into one
+            concat()
+                static method in Flux
+                will combine Flux an return Flux
+            concatWith()
+                instance method of Flux and Mono
+                will concat Mono into a Flux
+
+        merge() & mergeWith()
+            Subscribes eagerly to the publisher
+            Used to combine two publishers into one
+                merge()
+                    static method in Flux
+                mergeWith()
+                    instance method in Flux and Mono
+
+
+
+
+
+
+	
