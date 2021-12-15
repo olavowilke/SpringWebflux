@@ -1,5 +1,6 @@
 Notas estudo
 
+------------------------------------------------------------------------------------------------------------------------
 Reactive Programming
 
 	event driven
@@ -56,7 +57,7 @@ Implementation of reactive streams specification: Project Reactor
             Represents 0 - N elements
         Mono
             Represents 0 - 1 element
-
+------------------------------------------------------------------------------------------------------------------------
 Reactor Operators
     Pipeline concept: chaining multiple operators
     map()
@@ -77,7 +78,7 @@ Reactor Operators
         vs Does more than just transformation. Subscribes to Flux or Mono
         thats part of the transformation then flattens it and sends it downstream.
         - Used for simple synchronous transformations
-        vs used from asynchronous transformations
+        vs used for asynchronous transformations
         - Does not support transformations that returns Publishers
         vs used for transformations that requires a Publisher return
 
@@ -113,7 +114,7 @@ Reactor Operators
                 will combine Flux an return Flux
             concatWith()
                 instance method of Flux and Mono
-                will concat Mono into a Flux
+                will concat Monos into a Flux
 
         merge() & mergeWith()
             Subscribes eagerly to the publisher
@@ -122,6 +123,19 @@ Reactor Operators
                     static method in Flux
                 mergeWith()
                     instance method in Flux and Mono
+
+        mergeSequential()
+            Used to combine two publishers into one
+
+        zip() & zipWith()
+            Combines multiple
+------------------------------------------------------------------------------------------------------------------------
+Spring Webflux
+    Annotated controllers
+    Functional endpoints
+
+    Streaming Endpoint
+        Continuously send updates to the clients as the new data arrives
 
 
 
