@@ -35,7 +35,6 @@ public class MovieInfoRepositoryIntgTest {
 
     @BeforeEach
     void setUp() {
-
         List<MovieInfo> movieInfos = List.of(new MovieInfo(null, "Batman Begins",
                         2005, List.of("Christian Bale", "Michael Cane"), LocalDate.parse("2005-06-15")),
                 new MovieInfo(null, "The Dark Knight",
