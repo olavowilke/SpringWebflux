@@ -137,6 +137,17 @@ Spring Webflux
     Streaming Endpoint
         Continuously send updates to the clients as the new data arrives
 
+    Functional Web
+        Router
+            Rest endpoints are configured
+        Handler
+            Code to handle the request
+------------------------------------------------------------------------------------------------------------------------
+Building the API
+    Any time you are performing a reactive operation (such as save()),and you want the returned value,
+    use flatMap().
+
+
 
 
 

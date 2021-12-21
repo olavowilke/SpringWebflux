@@ -29,7 +29,7 @@ Obs: Try to implement this test config at user-service.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MovieInfoControllerIntgTest {
 
-    private static final String MOVIES_INFO_URL = "/movie-infos";
+    public static final String MOVIES_INFO_URL = "/movie-infos";
     @Autowired
     private MovieInfoRepository movieInfoRepository;
 
@@ -150,6 +150,35 @@ public class MovieInfoControllerIntgTest {
                 .exchange()
                 .expectStatus()
                 .isNoContent();
+    }
+
+    @Test
+    public void updateMovieInfo_notFound(){
+        String movieInfoId = "def";
+        MovieInfo updateRequest = new MovieInfo(null, "Batman Finishes",
+                2005, List.of("Christian Bale", "Michael Cane"), LocalDate.parse("2005-06-15"));
+
+        webTestClient
+                .put()
+                .uri(MOVIES_INFO_URL+"/{id}", movieInfoId)
+                .bodyValue(updateRequest)
+                .exchange()
+                .expectStatus()
+                .isNotFound();
+    }
+
+    @Test
+    public void updateMovieInfoById(){
+        String movieInfoId = "def";
+        MovieInfo updateRequest = new MovieInfo(null, "Batman Finishes",
+                2005, List.of("Christian Bale", "Michael Cane"), LocalDate.parse("2005-06-15"));
+
+        webTestClient
+                .get()
+                .uri(MOVIES_INFO_URL+"/{id}", movieInfoId)
+                .exchange()
+                .expectStatus()
+                .isNotFound();
     }
 
 }
