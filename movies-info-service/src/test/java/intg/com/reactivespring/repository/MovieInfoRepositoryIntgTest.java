@@ -1,6 +1,6 @@
-package com.reactivespring.moviesinfoservice.repository;
+package com.reactivespring.repository;
 
-import com.reactivespring.moviesinfoservice.domain.MovieInfo;
+import com.reactivespring.domain.MovieInfo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

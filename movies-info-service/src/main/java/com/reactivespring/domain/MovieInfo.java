@@ -1,4 +1,4 @@
-package com.reactivespring.moviesinfoservice.domain;
+package com.reactivespring.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

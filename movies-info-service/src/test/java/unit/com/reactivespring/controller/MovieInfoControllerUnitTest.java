@@ -1,7 +1,7 @@
-package com.reactivespring.moviesinfoservice.controller;
+package com.reactivespring.controller;
 
-import com.reactivespring.moviesinfoservice.domain.MovieInfo;
-import com.reactivespring.moviesinfoservice.service.MovieInfoService;
+import com.reactivespring.domain.MovieInfo;
+import com.reactivespring.service.MovieInfoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.reactivespring.moviesinfoservice.controller.MovieInfoControllerIntgTest.MOVIES_INFO_URL;
+import static com.reactivespring.controller.MovieInfoControllerIntgTest.MOVIES_INFO_URL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.when;

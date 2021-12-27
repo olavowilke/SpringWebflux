@@ -1,7 +1,7 @@
-package com.reactivespring.moviesinfoservice.controller;
+package com.reactivespring.controller;
 
-import com.reactivespring.moviesinfoservice.domain.MovieInfo;
-import com.reactivespring.moviesinfoservice.service.MovieInfoService;
+import com.reactivespring.domain.MovieInfo;
+import com.reactivespring.service.MovieInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

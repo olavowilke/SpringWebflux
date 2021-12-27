@@ -1,7 +1,7 @@
-package com.reactivespring.moviesinfoservice.service;
+package com.reactivespring.service;
 
-import com.reactivespring.moviesinfoservice.domain.MovieInfo;
-import com.reactivespring.moviesinfoservice.repository.MovieInfoRepository;
+import com.reactivespring.domain.MovieInfo;
+import com.reactivespring.repository.MovieInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
