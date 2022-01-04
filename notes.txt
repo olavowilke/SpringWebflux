@@ -72,15 +72,17 @@ Reactor Operators
         Returns a Flux<Type>
 
     map() vs flatmap()
-        - One to One transformation
-        vs One to N transformations
-        - Does the simple transformation from T to V
-        vs Does more than just transformation. Subscribes to Flux or Mono
-        thats part of the transformation then flattens it and sends it downstream.
-        - Used for simple synchronous transformations
-        vs used for asynchronous transformations
-        - Does not support transformations that returns Publishers
-        vs used for transformations that requires a Publisher return
+        map() is a synchronous transformation, it will return a Object.
+        flatMap() is async and will return a reactive type.
+            - One to One transformation
+            vs One to N transformations
+            - Does the simple transformation from T to V
+            vs Does more than just transformation. Subscribes to Flux or Mono
+            thats part of the transformation then flattens it and sends it downstream.
+            - Used for simple synchronous transformations
+            vs used for asynchronous transformations
+            - Does not support transformations that returns Publishers
+            vs used for transformations that requires a Publisher return
 
     concatMap()
         Preserves the order while calling asynchronously, but takes more time to complete.
